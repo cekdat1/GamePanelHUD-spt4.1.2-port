@@ -6,7 +6,7 @@
 
 [GamePanelHUD](https://github.com/kmyuhkyuk/GamePanelHUD) is a Tarkov HUD expansion (ammo panel, compass, hit markers, kill feed, and more), originally by **[kmyuhkyuk](https://github.com/kmyuhkyuk)**. It depends on [KmyTarkovApi](https://github.com/kmyuhkyuk/KmyTarkovApi).
 
-The official releases target an older EFT client build (`0.16.1.3.35392`). This port retargets it to the client version shipped with **SPT 4.1.2** (`0.16.9.40743`), so it loads and runs on a current SPT install. You also need the matching [KmyTarkovApi port](../KmyTarkovApi) — this won't load without it.
+The official releases target an older EFT client build (`0.16.1.3.35392`). This port retargets it to the client version shipped with **SPT 4.1.2** (`0.16.9.40743`), so it loads and runs on a current SPT install. You also need the matching [KmyTarkovApi port](https://github.com/cekdat1/KmyTarkovApi-spt4.1.2-port) — this won't load without it.
 
 ## ⚠️ Disclaimer
 
@@ -36,11 +36,11 @@ All found by reflecting directly against the real client DLL:
 
 Also fixed: `EFT.IUpdate` now exists in the client and collides with `KmyTarkovUtils.IUpdate` — disambiguated in `GamePanelHUDKill`, `GamePanelHUDCompass`, and `GamePanelHUDWeapon`.
 
-**One real post-install bug found and fixed** (in the `KmyTarkovApi` dependency, not this repo, but worth knowing): ammo HUD display silently broke at runtime because a duck-typed animator lookup started matching two client types instead of one. Full writeup in the [KmyTarkovApi README](../KmyTarkovApi/README.md).
+**One real post-install bug found and fixed** (in the `KmyTarkovApi` dependency, not this repo, but worth knowing): ammo HUD display silently broke at runtime because a duck-typed animator lookup started matching two client types instead of one. Full writeup in the [KmyTarkovApi README](https://github.com/cekdat1/KmyTarkovApi-spt4.1.2-port/blob/master/README.md).
 
 ## Installation
 
-1. Install the matching [KmyTarkovApi port](../KmyTarkovApi) first.
+1. Install the matching [KmyTarkovApi port](https://github.com/cekdat1/KmyTarkovApi-spt4.1.2-port) first.
 2. Download `Release/kmyuhkyuk-GamePanelHUD/` from this repo.
 3. Copy it into `<your SPT install>\BepInEx\plugins\`.
 4. Result: `<SPT install>\BepInEx\plugins\kmyuhkyuk-GamePanelHUD\` (with `GamePanelHUDCore.dll` in its own `core\` subfolder — that's the original layout, BepInEx scans subfolders fine).
@@ -48,7 +48,7 @@ Also fixed: `EFT.IUpdate` now exists in the client and collides with `KmyTarkovU
 
 ## Building from source
 
-Requires the .NET Framework 4.7.2 targeting pack (or the `Microsoft.NETFramework.ReferenceAssemblies.net472` NuGet package, already referenced in the `.csproj` files), a built copy of the [KmyTarkovApi port](../KmyTarkovApi), and your own SPT install's client DLLs.
+Requires the .NET Framework 4.7.2 targeting pack (or the `Microsoft.NETFramework.ReferenceAssemblies.net472` NuGet package, already referenced in the `.csproj` files), a built copy of the [KmyTarkovApi port](https://github.com/cekdat1/KmyTarkovApi-spt4.1.2-port), and your own SPT install's client DLLs.
 
 Each `.csproj`'s `<Reference>` `HintPath`s point at `D:\SPT\...` and `..\..\KmyTarkovApi\...` — **update these to your own paths** before building:
 - `D:\SPT\EscapeFromTarkov_Data\Managed\*.dll`, `D:\SPT\BepInEx\core\*.dll`
