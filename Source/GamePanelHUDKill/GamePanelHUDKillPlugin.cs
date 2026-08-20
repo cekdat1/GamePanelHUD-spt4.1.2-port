@@ -36,6 +36,7 @@ namespace GamePanelHUDKill
             killHUDModel.KillPrefab = prefabs.Asset["Kill"].ReplaceAllFont(EFTFontHelper.BenderNormal);
 
             _PlayerHelper.OnBeenKilledByAggressor.Add(this, nameof(OnBeenKilledByAggressor));
+            RegisterBotHook();
         }
     }
 }

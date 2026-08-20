@@ -36,6 +36,7 @@ namespace GamePanelHUDKill.Controllers
             if (!hasPlayer)
             {
                 killHUDModel.KillCount = 0;
+                GamePanelHUDKillPlugin.ShownKillProfileIds.Clear();
             }
         }
 
